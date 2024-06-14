@@ -75,5 +75,5 @@ To run the model:
 ## License
 
 This project is licensed under the terms of the GNU GENERAL PUBLIC LICENSE.
----------
+
 Note: The moral rights of this web application belong to Daniela Novoa Ramírez, and the economic rights belong to the University of La Sabana.
