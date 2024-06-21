@@ -10,7 +10,6 @@ import opseestools.utilidades as ut
 
 import os
 import numpy as np
-import utilidades as ut
 import matplotlib
 matplotlib.use('Agg')  # Establece el backend a 'Agg' (renderizado sin GUI)
 # A continuación, importa las bibliotecas necesarias y genera la figura
