@@ -51,7 +51,7 @@ To run the platform, follow these steps:
 
 3. Install the required libraries:
     ```sh
-    pip install openseespy vfo opsv opseestools flask django
+    pip install openseespy vfo opsvis opseestools flask django
     ```
 
 ## Usage
