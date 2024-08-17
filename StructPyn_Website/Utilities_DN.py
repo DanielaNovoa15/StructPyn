@@ -65,24 +65,28 @@ def fiber_elemens_Columns(BCol, HCol, c, cT, cM, cB, nT, nM, nB, fc, Fy, yloc):
     Col_Unconf = 3
     Steel = 5
     # --------------------------------- Concreto sin confinar --------------------------------
-    E = 4700 * (fc/1000)**0.5 * 1000
+    E = 4400 * (fc/1000)**0.5 * 1000
     ec = 2 * fc / E
     fcu = 0.2 * fc
     Gfc = fc / 1000
-    e20 = ut.e20Lobatto(Gfc, Lcol, pint, fc/1000, E/1000, ec)
-    uniaxialMaterial('Concrete01', Col_Unconf, -fc, -ec, -fcu, -e20)
+    e20 = ut.e20Lobatto2(Gfc, Lcol, pint, fc/1000, E/1000, ec)
+    uniaxialMaterial('Concrete02', Col_Unconf, -fc, -ec, -fcu, -e20)
     # --------------------------------- Concreto confinado -----------------------------------
     k = 1.3
     fcc = fc * k
     ecc = 2 * fcc / E
     fucc = 0.2 * fcc
     Gfcc = 2 * (fcc / 1000)
-    e20cc = ut.e20Lobatto(Gfcc, Lcol, pint, fcc/1000, E/1000, ecc)
-    uniaxialMaterial('Concrete01', Col_Conf, -fcc, -ecc, -fucc, -e20cc)
+    e20cc = ut.e20Lobatto2(Gfcc, Lcol, pint, fcc/1000, E/1000, ecc)
+    uniaxialMaterial('Concrete02', Col_Conf, -fcc, -ecc, -fucc, -e20cc)
     # ---------------------------------------- Acero -----------------------------------------
     Es = 210000000.0
-    uniaxialMaterial('Steel01', 6, Fy, Es, 0.01)
-    uniaxialMaterial('MinMax', Steel, 6, '-min', -0.008, '-max', 0.05)
+    # uniaxialMaterial('Steel01', 6, Fy, Es, 0.01)
+    # uniaxialMaterial('MinMax', Steel, 6, '-min', -0.008, '-max', 0.05)
+    
+    Es=210000000.0
+    s, e = ut.dhakal(Fy/1000, Fy/1000*1.5, 0.002, 0.01, 0.1, 96, 12)
+    uniaxialMaterial('Hysteretic',Steel,s[0],e[0],s[1],e[1],s[3],e[3],s[4],e[4],s[5],e[5],s[7],e[7],1.0,1.0,0.0,0.0)
 
     y1col = HCol / 2.0
     z1col = BCol / 2.0
@@ -405,24 +409,27 @@ def fiber_elemens_Beams(BCol, HCol, c, cT, cB, nT, nB, fc, Fy, xloc):
     Vig_Unconf = 4
     Steel = 7
     # Concreto sin confinar 
-    E = 4700 * (fc/1000)**0.5 * 1000
+    E = 4400 * (fc/1000)**0.5 * 1000
     ec = 2 * fc / E
     fcu = 0.2 * fc
     Gfc = fc / 1000
-    e20 = ut.e20Lobatto(Gfc, Lvig, pint, fc/1000, E/1000, ec)
-    uniaxialMaterial('Concrete01', Vig_Unconf, -fc, -ec, -fcu, -e20)
+    e20 = ut.e20Lobatto2(Gfc, Lvig, pint, fc/1000, E/1000, ec)
+    uniaxialMaterial('Concrete02', Vig_Unconf, -fc, -ec, -fcu, -e20)
     # Concreto confinado 
-    k = 1.3
+    k = 1.25
     fcc = fc * k
     ecc = 2 * fcc / E
     fucc = 0.2 * fcc
     Gfcc = 2 * (fcc / 1000)
-    e20cc = ut.e20Lobatto(Gfcc, Lvig, pint, fcc/1000, E/1000, ecc)
-    uniaxialMaterial('Concrete01', Vig_Conf, -fcc, -ecc, -fucc, -e20cc)
+    e20cc = ut.e20Lobatto2(Gfcc, Lvig, pint, fcc/1000, E/1000, ecc)
+    uniaxialMaterial('Concrete02', Vig_Conf, -fcc, -ecc, -fucc, -e20cc)
     # Acero
-    Es = 210000000.0
-    uniaxialMaterial('Steel01', 8, Fy, Es, 0.01)
-    uniaxialMaterial('MinMax', Steel, 8, '-min', -0.008, '-max', 0.05)
+    Es=210000000.0
+    s, e = ut.dhakal(Fy/1000, Fy/1000*1.5, 0.002, 0.01, 0.1, 96, 12)
+    # uniaxialMaterial('Steel01', 8, Fy, Es, 0.01)
+    # uniaxialMaterial('MinMax', Steel, 8, '-min', -0.008, '-max', 0.05)
+    uniaxialMaterial('Hysteretic',Steel,s[0],e[0],s[1],e[1],s[3],e[3],s[4],e[4],s[5],e[5],s[7],e[7],1.0,1.0,0.0,0.0)  
+
     #--------------------------------------------------------------------------
 
     y1col = HCol / 2.0
