@@ -41,12 +41,12 @@ To run the platform, follow these steps:
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/DanielaNovoa15/StructPyn_Website.git
+    git clone https://github.com/DanielaNovoa15/StructPyn.git
     ```
 
 2. Navigate to the project directory:
     ```sh
-    cd StructPyn_Website/
+    cd StructPyn/
     ```
 
 3. Install the required libraries:
