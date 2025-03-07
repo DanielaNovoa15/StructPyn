@@ -7,7 +7,7 @@ StructPyn_Website is a web application designed to generate the capacity curve o
 1. [Project Structure](#project-structure)
 2. [Installation](#installation)
 3. [Usage](#usage)
-4. [Demostration Video](#video)
+4. [Demostration Video](#demostration-video)
 6. [License](#license)
 
 ## Project Structure
