@@ -7,7 +7,8 @@ StructPyn_Website is a web application designed to generate the capacity curve o
 1. [Project Structure](#project-structure)
 2. [Installation](#installation)
 3. [Usage](#usage)
-4. [License](#license)
+4. [Demostration Video](#video)
+5. [License](#license)
 
 ## Project Structure
 
@@ -71,6 +72,10 @@ To run the model:
     ```
 
 4. Open your web browser and go to `http://localhost:5000` to access the platform.
+
+## Demostration Video
+For a better understanding of how models are generated on our platform, we invite you to watch the following demonstration video:
+https://youtu.be/wEHps176Kpw
 
 ## License
 
